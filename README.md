@@ -114,6 +114,7 @@ const streamToString = (stream) =>
     stream.on("end", () => resolve(Buffer.concat(chunks).toString("utf-8")));
   });
 
+```
 ### **Step 5: Test the Setup**
 
 Upload a file named sample.txt to your S3 bucket.
