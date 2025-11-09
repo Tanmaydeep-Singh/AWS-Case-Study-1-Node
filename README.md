@@ -38,6 +38,9 @@ Whenever a `.txt` file is uploaded to an S3 bucket, the **Lambda function** is t
 2. Name it: `file-processing-bucket-<your-name>`.
 3. Keep all default settings and create the bucket.
 
+ ![Screensot Diagram](./Images/ScreenShot-1.png)
+
+
 ### **Step 2: Configure S3 Event Notification**
 1. Open your S3 bucket → **Properties** → scroll to **Event Notifications**.
 2. Click **Create event notification**:
@@ -47,6 +50,9 @@ Whenever a `.txt` file is uploaded to an S3 bucket, the **Lambda function** is t
    - Destination: Lambda function (`TextFileProcessor`)
 3. Save changes.
 
+  ![Screensot Diagram](./Images/ScreenShot-4.png)
+
+
 ---
 
 ### **Step 3: Create DynamoDB Table**
@@ -55,12 +61,21 @@ Whenever a `.txt` file is uploaded to an S3 bucket, the **Lambda function** is t
 3. Partition key: `fileName (String)`
 4. Click **Create Table**.
 
+ ![Screensot Diagram](./Images/ScreenShot-3.png)
+
+
+
+
 ---
 
 ### **Step 4: Create the Lambda Function**
 
 #### **Option 1: Node.js Version**
 If you prefer Node.js 22 runtime, use the following code:
+
+  ![Screensot Diagram](./Images/ScreenShot-2.png)
+   ![Screensot Diagram](./Images/ScreenShot-7.png)
+
 
 ```javascript
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
@@ -148,3 +163,7 @@ CloudWatch Logs → to verify execution success.
 DynamoDB → new entry created with file statistics.
 
 ### **Step 6: Result**
+
+)
+  ![Screensot Diagram](./Images/ScreenShot-5.png)
+ ![Screensot Diagram](./Images/ScreenShot-6.png)
